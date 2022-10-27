@@ -5,11 +5,11 @@ export const ContainerButton = styled.button`
   font-family: var(--type-first);
   cursor: pointer;
   border: none;
-  /* min-width: 12.8rem; */
+  min-width: 12.8rem;
   border-radius: 0.5rem;
   background: var(--color-first);
   color: var(--color-second);
-  padding: 0.8rem 5rem;
+  padding: 1.2rem 1.9rem;
   transition: 0.1s;
 
   &:hover,
@@ -20,5 +20,8 @@ export const ContainerButton = styled.button`
   &.disabled {
     opacity: 0.5;
     cursor: wait;
+  }
+  .disativo {
+    background-color: red;
   }
 `

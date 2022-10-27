@@ -24,9 +24,9 @@ export const ContainerInput = styled.div`
     line-height: 1;
     padding-bottom: 0.8rem;
   }
-  .erro {
+  /* .erro {
     color: #f31;
     font-size: 1.3rem;
     margin-top: 0.5rem;
-  }
+  } */
 `
