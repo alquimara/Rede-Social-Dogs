@@ -27,6 +27,7 @@ body{
   font-family: var(--type-first);
   font-size: 1.6rem;
 }
+
 a {
   color: var(--color-text)
 }
@@ -36,6 +37,7 @@ img{
 }
 button{
   display: block;
+  font-size: 1.6rem;
 }
 .container{
   max-width: 120rem;

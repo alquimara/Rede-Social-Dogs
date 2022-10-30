@@ -71,6 +71,8 @@ export const UseStoreContext = ({ children }) => {
         } finally {
           setLoading(false)
         }
+      } else {
+        setLogin(false)
       }
     }
 
