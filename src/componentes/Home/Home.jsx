@@ -1,7 +1,13 @@
 import React from 'react'
+import { ContainerHome } from './Style'
+import Feed from '../Feed/Feed'
 
 const Home = () => {
-  return <h1 className="containerBody">Home</h1>
+  return (
+    <ContainerHome className="container containerBody mainContainer">
+      <Feed />
+    </ContainerHome>
+  )
 }
 
 export default Home

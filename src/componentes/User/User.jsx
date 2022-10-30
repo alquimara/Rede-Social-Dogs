@@ -3,7 +3,7 @@ import { Route, Routes } from 'react-router-dom'
 import Feed from '../Feed/Feed'
 import { ContainerUser } from './Style'
 import UserHeader from './UserHeader'
-import UserPhotoPost from './UserPhotoPost'
+import UserPhotoPost from './UserPhotoPost/UserPhotoPost'
 import UserStatis from './UserStatis'
 
 const User = () => {

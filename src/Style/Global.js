@@ -40,7 +40,7 @@ button{
   font-size: 1.6rem;
 }
 .container{
-  max-width: 120rem;
+  max-width: 80rem;
   margin: 0 auto;
   padding: 0 1rem;
 }
@@ -84,5 +84,8 @@ button{
       border-radius: 0.2rem;
       z-index:-1;
     }
+  }
+  .mainContainer{
+    margin-top:6.4rem
   }
 `
