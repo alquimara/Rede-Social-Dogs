@@ -9,6 +9,7 @@ export const UseStoreContext = ({ children }) => {
   const [login, setLogin] = useState(null)
   const [loading, setLoading] = useState(false)
   const [erro, setErro] = useState(null)
+  const [modalPhoto, setModalPhoto] = useState(null)
   const navigate = useNavigate()
 
   const getUser = useCallback(
@@ -81,7 +82,16 @@ export const UseStoreContext = ({ children }) => {
 
   return (
     <UserContext.Provider
-      value={{ userLogin, data, userLogout, erro, loading, login }}
+      value={{
+        userLogin,
+        data,
+        userLogout,
+        erro,
+        loading,
+        login,
+        modalPhoto,
+        setModalPhoto
+      }}
     >
       {children}
     </UserContext.Provider>

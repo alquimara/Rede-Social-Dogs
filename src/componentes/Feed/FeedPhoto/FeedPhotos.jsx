@@ -6,14 +6,13 @@ import Erro from '../../Erro/Erro'
 import Loading from '../../Loading/Loading'
 import { ContainerPhoto } from './Style'
 
-const FeedPhotos = () => {
+const FeedPhotos = ({ setModalPhoto }) => {
   const { data, erro, loading, request } = useFetch()
 
   useEffect(() => {
     async function fetchPhotos() {
       const { url, options } = PHOTOS_GET({ page: 1, total: 6, user: 0 })
       const { response, json } = await request(url, options)
-      console.log(json)
     }
     fetchPhotos()
   }, [request])

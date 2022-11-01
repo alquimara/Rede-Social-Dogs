@@ -1,11 +1,13 @@
-import React from 'react'
-import FeedModal from './FeedModal'
+import React, { useContext, useState } from 'react'
+import { UserContext } from '../../Context/useContext'
+import FeedModal from './FeedModal/FeedModal'
 import FeedPhotos from './FeedPhoto/FeedPhotos'
 
 const Feed = () => {
+  const { modalPhoto } = useContext(UserContext)
   return (
     <>
-      <FeedModal />
+      {modalPhoto && <FeedModal photo={modalPhoto} />}
       <FeedPhotos />
     </>
   )
