@@ -14,7 +14,7 @@ export const ContainerPhotoContent = styled.div`
   transform: scale(0.8);
   animation: scaleUp 0.3s forwards;
 
-  ul {
+  .caracteristica {
     display: flex;
     font-size: 1.6rem;
     font-weight: bold;
@@ -44,6 +44,12 @@ export const ContainerPhotoContent = styled.div`
     }
   }
 
+  form {
+    label {
+      display: block;
+    }
+  }
+
   .details {
     padding: 3.2rem 3.2rem 0 3.2rem;
   }
@@ -70,6 +76,8 @@ export const ContainerPhotoContent = styled.div`
     height: 1rem;
     margin-right: 0.5rem;
     background: url(${IconVisualizacao});
+  }
+  .comentario {
   }
 
   @media (max-width: 64rem) {
