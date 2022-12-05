@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { PHOTO_GET } from '../../../api/Api'
 import useFetch from '../../../Hooks/useFetch'
-import { ContainerModal } from './Style'
+import styles from './FeedModal.module.css'
 import Erro from '../../Erro/Erro'
 import Loading from '../../Loading/Loading'
 import PhotoContent from '../../Photo/PhotoContent'
@@ -22,11 +22,11 @@ const FeedModal = ({ photo }) => {
     request(url, options)
   }, [photo, request])
   return (
-    <ContainerModal onClick={openModal}>
+    <div className={styles.modal} onClick={openModal}>
       {erro && <Erro erro={erro} />}
       {loading && <Loading />}
       {data && <PhotoContent data={data} />}
-    </ContainerModal>
+    </div>
   )
 }
 

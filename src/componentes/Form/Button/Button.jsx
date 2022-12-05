@@ -1,8 +1,12 @@
 import React from 'react'
-import { ContainerButton } from './Style.js'
+import stylesBtn from './Button.module.css'
 
-const Button = ({ children, className }) => {
-  return <ContainerButton className={className}>{children}</ContainerButton>
+const Button = ({ children, ...props }) => {
+  return (
+    <button {...props} className={stylesBtn.button}>
+      {children}
+    </button>
+  )
 }
 
 export default Button

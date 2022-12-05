@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { ContainerPhotoPost } from './Style'
+import styles from './UserPhotoPost.module.css'
 import Input from '../../Form/Input/Input'
 import useForm from '../../../Hooks/useForm'
 import useFetch from '../../../Hooks/useFetch'
@@ -37,14 +37,20 @@ const UserPhotoPost = () => {
     })
   }
   return (
-    <ContainerPhotoPost className="animeLeft">
+    <section className={`${styles.photoPost} animeLeft`}>
       <form onSubmit={handleSubmit}>
         <Input label="Nome:" nome="nome" type="text" {...nome} />
         <Input label="Peso:" nome="peso" type="number" {...peso} />
         <Input label="Idade:" nome="idade" type="number" {...idade} />
-        <input type="file" name="img" id="img" onChange={handleImg} />
+        <input
+          className={styles.file}
+          type="file"
+          name="img"
+          id="img"
+          onChange={handleImg}
+        />
         {loading ? (
-          <Button className="disabled">Enviando...</Button>
+          <Button disabled>Enviando...</Button>
         ) : (
           <Button>Enviar</Button>
         )}
@@ -53,12 +59,12 @@ const UserPhotoPost = () => {
       <div>
         {img.preview && (
           <div
-            className="preview"
+            className={styles.preview}
             style={{ backgroundImage: `url('${img.preview}')` }}
           ></div>
         )}
       </div>
-    </ContainerPhotoPost>
+    </section>
   )
 }
 

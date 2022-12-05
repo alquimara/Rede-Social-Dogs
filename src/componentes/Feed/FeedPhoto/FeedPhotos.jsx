@@ -4,7 +4,7 @@ import useFetch from '../../../Hooks/useFetch'
 import FeedPhotoItem from '../FeedPhotoItem/FeedPhotoItem'
 import Erro from '../../Erro/Erro'
 import Loading from '../../Loading/Loading'
-import { ContainerPhoto } from './Style'
+import styles from './FeedPhoto.module.css'
 
 const FeedPhotos = ({ setModalPhoto }) => {
   const { data, erro, loading, request } = useFetch()
@@ -20,11 +20,11 @@ const FeedPhotos = ({ setModalPhoto }) => {
   if (loading) return <Loading />
   if (data)
     return (
-      <ContainerPhoto className="animeLeft">
+      <ul className={`${styles.feed} animeLeft`}>
         {data.map(photo => (
           <FeedPhotoItem photo={photo} key={photo.id} />
         ))}
-      </ContainerPhoto>
+      </ul>
     )
   else return null
 }

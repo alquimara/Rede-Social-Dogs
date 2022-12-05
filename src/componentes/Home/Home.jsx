@@ -4,9 +4,9 @@ import Feed from '../Feed/Feed'
 
 const Home = () => {
   return (
-    <ContainerHome className="container containerBody mainContainer">
+    <section className="container mainContainer">
       <Feed />
-    </ContainerHome>
+    </section>
   )
 }
 

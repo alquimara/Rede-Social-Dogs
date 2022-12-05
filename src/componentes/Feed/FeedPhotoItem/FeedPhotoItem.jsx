@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import { UserContext } from '../../../Context/useContext'
-import { ContainerPhotoItem } from './Style'
+import Image from '../../Image/Image'
+import styles from './FeedPhotoItem.module.css'
 
 const FeedPhotoItem = ({ photo }) => {
   const { setModalPhoto } = useContext(UserContext)
@@ -8,10 +9,10 @@ const FeedPhotoItem = ({ photo }) => {
     setModalPhoto(photo)
   }
   return (
-    <ContainerPhotoItem onClick={handleModal}>
-      <img src={photo.src} alt={photo.title} />
-      <span>{photo.acessos}</span>
-    </ContainerPhotoItem>
+    <li className={styles.photo} onClick={handleModal}>
+      <Image src={photo.src} alt={photo.title} />
+      <span className={styles.visualizacao}>{photo.acessos}</span>
+    </li>
   )
 }
 

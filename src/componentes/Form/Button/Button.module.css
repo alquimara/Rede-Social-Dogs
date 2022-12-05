@@ -1,27 +1,26 @@
-import styled from 'styled-components'
-
-export const ContainerButton = styled.button`
-  font-size: 1.6rem;
+.button{
+  font-size: 1rem;
   font-family: var(--type-first);
   cursor: pointer;
   border: none;
-  min-width: 12.8rem;
-  border-radius: 0.5rem;
+  min-width: 8rem;
+  border-radius: 0.4rem;
   background: var(--color-first);
   color: var(--color-second);
-  padding: 1.2rem 1.9rem;
+  padding: 0.8rem 1.2rem;
   transition: 0.1s;
+}
 
-  &:hover,
-  &:focus {
+  .button:hover,
+  .button:focus {
     outline: none;
     box-shadow: 0 0 0 3px var(--color-third), 0 0 0 4px var(--color-first);
   }
-  &.disabled {
+  .button:disabled {
     opacity: 0.5;
     cursor: wait;
   }
   .disativo {
     background-color: red;
   }
-`
+

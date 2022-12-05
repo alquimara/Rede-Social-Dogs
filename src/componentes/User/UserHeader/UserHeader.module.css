@@ -1,14 +1,13 @@
-import styled from 'styled-components'
-export const ContainerUser = styled.div`
-  header {
+
+.header {
     display: grid;
     grid-template-columns: 1fr auto;
     align-items: center;
-    margin-bottom: 3.2rem;
-    margin-top: 1.6rem;
+    margin-bottom: 2rem;
+    margin-top: 1rem;
     position: relative;
   }
-  .navWeb {
+  /* .navWeb {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 1.6rem;
@@ -122,5 +121,5 @@ export const ContainerUser = styled.div`
     opacity: 1;
     z-index: 100;
     pointer-events: initial;
-  }
-`
+  } */
+

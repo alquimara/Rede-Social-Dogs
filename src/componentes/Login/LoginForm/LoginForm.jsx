@@ -4,9 +4,9 @@ import { UserContext } from '../../../Context/useContext'
 import useForm from '../../../Hooks/useForm'
 import Erro from '../../Erro/Erro'
 import Button from '../../Form/Button/Button'
-import { ContainerButton } from '../../Form/Button/Style'
+import stylesBtn from '../../Form/Button/Button.module.css'
+import styles from './LoginForm.module.css'
 import Input from '../../Form/Input/Input'
-import { ContainerLoginForm } from './Style.js'
 
 const LoginForm = () => {
   const username = useForm()
@@ -20,30 +20,29 @@ const LoginForm = () => {
     }
   }
   return (
-    <ContainerLoginForm className="containerBody animeLeft">
+    <section className="animeLeft">
       <h1 className="title">Login</h1>
-      <form onSubmit={handleSubmit}>
+      <form className={styles.form} onSubmit={handleSubmit}>
         <Input type="text" name="usuario" label="Usuário:" {...username} />
         <Input type="password" name="senha" label="Senha:" {...password} />
         {loading ? (
-          <Button className="disabled">Carregando</Button>
+          <Button disabled>Carregando</Button>
         ) : (
           <Button>Enviar</Button>
         )}
         <Erro erro={erro} />
-
-        <Link className="linkPerdeuSenha" to="/login/perdeu">
+        <Link className={styles.perdeu} to="/login/perdeu">
           Perdeu a senha
         </Link>
-        <div className="cadastroForm">
-          <h2>Cadastre-se</h2>
+        <div className={styles.cadastro}>
+          <h2 className={styles.subtitle}>Cadastre-se</h2>
           <p>Ainda não possui conta? Cadastre-se no site.</p>
-          <Link to="/login/criar">
-            <ContainerButton>Cadastre-se</ContainerButton>
+          <Link className={stylesBtn.button} to="/login/criar">
+            Cadastro
           </Link>
         </div>
       </form>
-    </ContainerLoginForm>
+    </section>
   )
 }
 

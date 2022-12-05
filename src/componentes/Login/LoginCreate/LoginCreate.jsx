@@ -24,14 +24,14 @@ const LoginCreate = () => {
     if (response.ok) userLogin(username.value, password.value)
   }
   return (
-    <section className="containerBody animeLeft">
+    <section className="animeLeft">
       <h1 className="title">Cadastre-se</h1>
       <form onSubmit={hanldeSubmit}>
         <Input type="text" name="usuario" label="Usuário:" {...username} />
         <Input type="text" name="email" label="Email:" {...email} />
         <Input type="password" name="senha" label="Senha:" {...password} />
         {loading ? (
-          <Button className="disabled">Cadastrando...</Button>
+          <Button disabled>Cadastrando...</Button>
         ) : (
           <Button>Cadastrar</Button>
         )}

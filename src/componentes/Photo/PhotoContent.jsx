@@ -1,25 +1,35 @@
 import React, { useEffect } from 'react'
+import { useContext } from 'react'
 import { Link } from 'react-router-dom'
-import PhotoComments from './PhotoComments'
-import { ContainerPhotoContent } from './Style'
+import { UserContext } from '../../Context/useContext'
+import PhotoComments from './PhotoComment/PhotoComments'
+import PhotoDelete from './PhotoDelete/PhotoDelete'
+import styles from './PhotoContent.module.css'
+import Image from '../Image/Image'
 
 const PhotoContent = ({ data }) => {
+  const user = useContext(UserContext)
   const { photo, comments } = data
   return (
-    <ContainerPhotoContent>
-      <div className="photo">
-        <img src={photo.src} alt={photo.title} />
+    <div className={styles.photo}>
+      <div className={styles.img}>
+        <Image src={photo.src} alt={photo.title} />
       </div>
-      <div className="details">
+      <div className={styles.details}>
         <div>
-          <p className="author">
-            <Link to={`/perfil/${photo.author}`}>@{photo.author}</Link>
-            <span className="visualizacao">{photo.acessos}</span>
+          <p className={styles.author}>
+            {user.data && user.data.username === photo.author ? (
+              <PhotoDelete id={photo.id} />
+            ) : (
+              <Link to={`/perfil/${photo.author}`}>@{photo.author}</Link>
+            )}
+
+            <span className={styles.visualizacaes}>{photo.acessos}</span>
           </p>
           <h1 className="title">
             <Link to={`/foto/${photo.id}`}>{photo.title}</Link>
           </h1>
-          <ul className="caracteristica">
+          <ul className={styles.attributes}>
             <li>{photo.peso} Kg</li>
             <li>
               {photo.idade} {`${photo.idade <= 1 ? 'ano' : 'anos'}`}
@@ -28,7 +38,7 @@ const PhotoContent = ({ data }) => {
         </div>
         <PhotoComments id={photo.id} comments={comments} />
       </div>
-    </ContainerPhotoContent>
+    </div>
   )
 }
 

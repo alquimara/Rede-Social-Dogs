@@ -6,31 +6,28 @@ import Login from './componentes/Login/Login'
 import ProtectedRouter from './componentes/ProtectedRouter/ProtectedRouter'
 import User from './componentes/User/User'
 import { UseStoreContext } from './Context/useContext'
-import Global from './Style/Global'
+import './Style/Global.css'
 
 const App = () => {
   return (
-    <>
-      <Global />
-      <BrowserRouter>
-        <UseStoreContext>
-          <Header />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/login/*" element={<Login />} />
-            <Route
-              path="/conta/*"
-              element={
-                <ProtectedRouter>
-                  <User />
-                </ProtectedRouter>
-              }
-            />
-          </Routes>
-          <Footer />
-        </UseStoreContext>
-      </BrowserRouter>
-    </>
+    <BrowserRouter>
+      <UseStoreContext>
+        <Header />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login/*" element={<Login />} />
+          <Route
+            path="/conta/*"
+            element={
+              <ProtectedRouter>
+                <User />
+              </ProtectedRouter>
+            }
+          />
+        </Routes>
+        <Footer />
+      </UseStoreContext>
+    </BrowserRouter>
   )
 }
 

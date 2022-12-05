@@ -1,11 +1,14 @@
 import React from 'react'
-import { ContainerInput } from './Style.js'
+import styles from './Input.module.css'
 
 const Input = ({ label, name, type, value, onChange, erro, onBlur }) => {
   return (
-    <ContainerInput>
-      <label htmlFor={name}>{label}</label>
+    <div className={styles.wrapper}>
+      <label htmlFor={name} className={styles.label}>
+        {label}
+      </label>
       <input
+        className={styles.input}
         id={name}
         type={type}
         value={value}
@@ -13,7 +16,7 @@ const Input = ({ label, name, type, value, onChange, erro, onBlur }) => {
         onBlur={onBlur}
       />
       {erro && <p className="erro">{erro}</p>}
-    </ContainerInput>
+    </div>
   )
 }
 

@@ -1,8 +1,9 @@
-import { useState } from 'react'
-import { COMMENT_POST } from '../../api/Api'
-import { ReactComponent as Enviar } from '../../assents/enviar.svg'
-import useFetch from '../../Hooks/useFetch'
-import Erro from '../Erro/Erro'
+import { useRef, useState } from 'react'
+import { COMMENT_POST } from '../../../api/Api'
+import { ReactComponent as Enviar } from '../../../assents/enviar.svg'
+import useFetch from '../../../Hooks/useFetch'
+import Erro from '../../Erro/Erro'
+import styles from './PhotoCommentsForm.module.css'
 
 const PhotoCommentsForm = ({ id, setComments }) => {
   const [comment, setComment] = useState('')
@@ -10,7 +11,6 @@ const PhotoCommentsForm = ({ id, setComments }) => {
 
   async function handleSubmit(event) {
     event.preventDefault()
-    console.log(id)
     const token = window.localStorage.getItem('token')
     const { url, options } = COMMENT_POST(id, { comment }, token)
     const { response, json } = await request(url, options)
@@ -21,15 +21,14 @@ const PhotoCommentsForm = ({ id, setComments }) => {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label id="comentario">Comentario:</label>
+    <form className={styles.form} onSubmit={handleSubmit}>
       <textarea
-        htmlFor="comentario"
+        className={styles.textarea}
         placeholder="Escreva seu Comentário"
         value={comment}
         onChange={event => setComment(event.target.value)}
       />
-      <button>
+      <button className={styles.button}>
         <Enviar />
       </button>
       {erro && <Erro erro={erro} />}
