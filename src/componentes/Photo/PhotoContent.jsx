@@ -7,11 +7,11 @@ import PhotoDelete from './PhotoDelete/PhotoDelete'
 import styles from './PhotoContent.module.css'
 import Image from '../Image/Image'
 
-const PhotoContent = ({ data }) => {
+const PhotoContent = ({ data, single }) => {
   const user = useContext(UserContext)
   const { photo, comments } = data
   return (
-    <div className={styles.photo}>
+    <div className={`${styles.photo} ${single ? styles.single : ''}`}>
       <div className={styles.img}>
         <Image src={photo.src} alt={photo.title} />
       </div>

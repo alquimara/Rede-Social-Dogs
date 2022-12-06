@@ -46,6 +46,12 @@ export function PHOTO_GET(id) {
     }
   }
 }
+export function PHOTO_GET_SINGLE(id) {
+  return {
+    url: `${API_URL}/api/photo/${id}`
+  }
+}
+
 export function PHOTO_POST(token, formData) {
   return {
     url: API_URL + '/api/photo',

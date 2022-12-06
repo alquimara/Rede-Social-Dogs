@@ -3,6 +3,7 @@ import { Footer } from './componentes/Footer/Footer'
 import Header from './componentes/Header/Header'
 import Home from './componentes/Home/Home'
 import Login from './componentes/Login/Login'
+import Photo from './componentes/Photo/Photo'
 import ProtectedRouter from './componentes/ProtectedRouter/ProtectedRouter'
 import User from './componentes/User/User'
 import { UseStoreContext } from './Context/useContext'
@@ -16,6 +17,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login/*" element={<Login />} />
+          <Route path="/foto/:id" element={<Photo />} />
           <Route
             path="/conta/*"
             element={
