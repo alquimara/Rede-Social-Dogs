@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import { UserContext } from '../../Context/useContext'
 import FeedModal from './FeedModal/FeedModal'
 import FeedPhotos from './FeedPhoto/FeedPhotos'
+import propTypes from 'prop-types'
 
 const Feed = ({ user }) => {
   const { modalPhoto } = useContext(UserContext)
@@ -42,6 +43,15 @@ const Feed = ({ user }) => {
       ))}
     </>
   )
+}
+Feed.defaultProps = {
+  user: 0
+}
+Feed.propTypes = {
+  user: propTypes.oneOfType([
+    propTypes.string.isRequired,
+    propTypes.number.isRequired
+  ])
 }
 
 export default Feed
