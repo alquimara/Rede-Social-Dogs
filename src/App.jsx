@@ -6,6 +6,7 @@ import Login from './componentes/Login/Login'
 import Photo from './componentes/Photo/Photo'
 import ProtectedRouter from './componentes/ProtectedRouter/ProtectedRouter'
 import User from './componentes/User/User'
+import UserProfile from './componentes/User/UserProfile'
 import { UseStoreContext } from './Context/useContext'
 import './Style/Global.css'
 
@@ -18,6 +19,7 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/login/*" element={<Login />} />
           <Route path="/foto/:id" element={<Photo />} />
+          <Route path="/perfil/:user" element={<UserProfile />} />
           <Route
             path="/conta/*"
             element={
