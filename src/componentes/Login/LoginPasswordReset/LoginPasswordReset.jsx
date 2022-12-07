@@ -6,6 +6,7 @@ import useForm from '../../../Hooks/useForm'
 import Erro from '../../Erro/Erro'
 import Button from '../../Form/Button/Button'
 import Input from '../../Form/Input/Input'
+import Head from '../../Head/Head'
 
 const LoginPasswordReset = () => {
   const navigate = useNavigate()
@@ -38,6 +39,7 @@ const LoginPasswordReset = () => {
   return (
     <div>
       <h1 className="title">Resete a Senha</h1>
+      <Head title="Resete a Senha" />
       <form onSubmit={handleSubmit}>
         <Input
           label="Nova Senha"

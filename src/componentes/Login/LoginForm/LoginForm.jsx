@@ -7,6 +7,7 @@ import Button from '../../Form/Button/Button'
 import stylesBtn from '../../Form/Button/Button.module.css'
 import styles from './LoginForm.module.css'
 import Input from '../../Form/Input/Input'
+import Head from '../../Head/Head'
 
 const LoginForm = () => {
   const username = useForm()
@@ -21,6 +22,7 @@ const LoginForm = () => {
   }
   return (
     <section className="animeLeft">
+      <Head title="Login" />
       <h1 className="title">Login</h1>
       <form className={styles.form} onSubmit={handleSubmit}>
         <Input type="text" name="usuario" label="Usuário:" {...username} />
