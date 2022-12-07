@@ -13,27 +13,31 @@ import './Style/Global.css'
 
 const App = () => {
   return (
-    <BrowserRouter>
-      <UseStoreContext>
-        <Header />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/login/*" element={<Login />} />
-          <Route path="/foto/:id" element={<Photo />} />
-          <Route path="/perfil/:user" element={<UserProfile />} />
-          <Route path="*" element={<NotFound erro={true} />} />
-          <Route
-            path="/conta/*"
-            element={
-              <ProtectedRouter>
-                <User />
-              </ProtectedRouter>
-            }
-          />
-        </Routes>
-        <Footer />
-      </UseStoreContext>
-    </BrowserRouter>
+    <div className="App">
+      <BrowserRouter>
+        <UseStoreContext>
+          <Header />
+          <main className="appBody">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/login/*" element={<Login />} />
+              <Route path="/foto/:id" element={<Photo />} />
+              <Route path="/perfil/:user" element={<UserProfile />} />
+              <Route path="*" element={<NotFound erro={true} />} />
+              <Route
+                path="/conta/*"
+                element={
+                  <ProtectedRouter>
+                    <User />
+                  </ProtectedRouter>
+                }
+              />
+            </Routes>
+          </main>
+          <Footer />
+        </UseStoreContext>
+      </BrowserRouter>
+    </div>
   )
 }
 

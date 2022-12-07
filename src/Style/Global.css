@@ -93,5 +93,13 @@ button, input{
 .erro.title::after{
   background-color: #f31;
 }
+.App{
+  display: flex;
+  flex-direction:column;
+  min-height: calc(100vh + 10rem);
+}
+.appBody{
+  flex: 1;
+}
 
 
