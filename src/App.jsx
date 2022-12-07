@@ -1,4 +1,5 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import NotFound from './componentes/Erro/NotFound'
 import { Footer } from './componentes/Footer/Footer'
 import Header from './componentes/Header/Header'
 import Home from './componentes/Home/Home'
@@ -20,6 +21,7 @@ const App = () => {
           <Route path="/login/*" element={<Login />} />
           <Route path="/foto/:id" element={<Photo />} />
           <Route path="/perfil/:user" element={<UserProfile />} />
+          <Route path="*" element={<NotFound erro={true} />} />
           <Route
             path="/conta/*"
             element={
