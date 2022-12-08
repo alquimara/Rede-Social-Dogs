@@ -27,14 +27,14 @@ const UserStatsGraphs = ({ data }) => {
       </div>
       <div className={styles.graphItem}>
         <VictoryPie
+          colorScale={['tomato', 'orange', 'gold', 'cyan', 'navy']}
           data={statsGraph}
           padding={{ top: 20, bottom: 20, left: 80, right: 80 }}
           style={{
             data: {
               fillOpacity: 0.9,
               stroke: '#fff',
-              strokeWidth: 2,
-              fill: '#344'
+              strokeWidth: 2
             },
 
             labels: {
@@ -46,11 +46,7 @@ const UserStatsGraphs = ({ data }) => {
       </div>
       <div className={styles.graphItem}>
         <VictoryChart>
-          <VictoryBar
-            alignment="start"
-            data={statsGraph}
-            colorScale={['gold', 'orange', 'tomato']}
-          />
+          <VictoryBar alignment="start" data={statsGraph} />
         </VictoryChart>
       </div>
     </section>
