@@ -12,17 +12,25 @@ export const UseStoreContext = ({ children }) => {
   const [modalPhoto, setModalPhoto] = useState(null)
   const navigate = useNavigate()
 
-  const getUser = useCallback(
-    async function (token) {
-      const { url, options } = USER_GET(token)
-
-      const response = await fetch(url, options)
-      const json = await response.json()
-      setData(json)
-      setLogin(true)
+  const userLogout = useCallback(
+    async function () {
+      setData(null)
+      setErro(null)
+      setLoading(false)
+      setLogin(false)
+      window.localStorage.removeItem('token')
+      navigate('/login')
     },
-    [data]
+    [navigate]
   )
+
+  async function getUser(token) {
+    const { url, options } = USER_GET(token)
+    const response = await fetch(url, options)
+    const json = await response.json()
+    setData(json)
+    setLogin(true)
+  }
   async function userLogin(username, password) {
     try {
       setErro(null)
@@ -35,7 +43,7 @@ export const UseStoreContext = ({ children }) => {
       if (!response.ok) throw new Error('Usuário Inválido')
       const json = await response.json()
       window.localStorage.setItem('token', json.token)
-      getUser(json.token)
+      await getUser(json.token)
       navigate('/conta')
     } catch (error) {
       setErro(error.message)
@@ -44,17 +52,6 @@ export const UseStoreContext = ({ children }) => {
       setLoading(false)
     }
   }
-  const userLogout = useCallback(
-    async function () {
-      setData(null)
-      setErro(null)
-      setLoading(false)
-      setLogin(false)
-      window.localStorage.removeItem('token')
-      navigate('/login')
-    },
-    [navigate]
-  )
 
   useEffect(() => {
     async function autoLogin() {

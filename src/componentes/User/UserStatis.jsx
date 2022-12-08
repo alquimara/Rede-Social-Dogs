@@ -4,6 +4,7 @@ import useFetch from '../../Hooks/useFetch'
 import Erro from '../Erro/Erro'
 import Loading from '../Loading/Loading'
 import { STATS_GET } from '../../api/Api'
+import { Suspense } from 'react'
 
 const UserStatsGraphs = lazy(() => import('./UserStatisGraph/UserStatsGraphs'))
 
@@ -23,10 +24,10 @@ const UserStatis = () => {
   if (data)
     return (
       <section>
-        <React.Suspense fallback={<div></div>}>
+        <Suspense>
           <Head title="Estatísticas" />
           <UserStatsGraphs data={data} />
-        </React.Suspense>
+        </Suspense>
       </section>
     )
   else return null

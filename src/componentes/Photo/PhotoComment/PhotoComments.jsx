@@ -5,7 +5,7 @@ import { UserContext } from '../../../Context/useContext'
 import PhotoCommentsForm from '../PhotoCommentForm/PhotoCommentsForm'
 import styles from './PhotoComment.module.css'
 
-const PhotoComments = ({ id, comments }) => {
+const PhotoComments = ({ id, comments, single }) => {
   const [coments, setComents] = useState(() => comments)
   const commentsSection = useRef(null)
   const { login } = useContext(UserContext)
@@ -15,7 +15,10 @@ const PhotoComments = ({ id, comments }) => {
   }, [coments])
   return (
     <>
-      <ul ref={commentsSection} className={styles.comments}>
+      <ul
+        ref={commentsSection}
+        className={`${styles.comments} ${single ? styles.single : ''}`}
+      >
         {coments.map(com => (
           <li key={com.comment_ID}>
             <b>{com.comment_author}:</b>
