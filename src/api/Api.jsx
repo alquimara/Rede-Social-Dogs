@@ -120,3 +120,15 @@ export function RESET_PASSWORD(body) {
     }
   }
 }
+export function STATS_GET(token) {
+  return {
+    url: API_URL + '/api/stats',
+    options: {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + token
+      }
+    }
+  }
+}
