@@ -23,7 +23,6 @@ export const UseStoreContext = ({ children }) => {
     },
     [navigate]
   )
-
   async function getUser(token) {
     const { url, options } = USER_GET(token)
     const response = await fetch(url, options)
@@ -75,7 +74,7 @@ export const UseStoreContext = ({ children }) => {
     }
 
     autoLogin()
-  }, [userLogout, getUser])
+  }, [userLogout])
 
   return (
     <UserContext.Provider
