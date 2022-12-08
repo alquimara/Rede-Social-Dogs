@@ -1,11 +1,10 @@
-import React, { useContext, useEffect, useState } from 'react'
-import { UserContext } from '../../Context/useContext'
+import React, { useEffect, useState } from 'react'
 import FeedModal from './FeedModal/FeedModal'
 import FeedPhotos from './FeedPhoto/FeedPhotos'
 import propTypes from 'prop-types'
 
 const Feed = ({ user }) => {
-  const { modalPhoto } = useContext(UserContext)
+  const [modalPhoto, setModalPhoto] = useState(null)
   const [pages, setPages] = useState([1])
   const [infinite, setInfinite] = useState(true)
   useEffect(() => {
@@ -32,15 +31,30 @@ const Feed = ({ user }) => {
   }, [infinite])
   return (
     <>
-      {modalPhoto && <FeedModal photo={modalPhoto} />}
+      {modalPhoto && (
+        <FeedModal photo={modalPhoto} setModalPhoto={setModalPhoto} />
+      )}
       {pages.map(page => (
         <FeedPhotos
           key={page}
           user={user}
           page={page}
           setInfinite={setInfinite}
+          setModalPhoto={setModalPhoto}
         />
       ))}
+      {!infinite && !user && (
+        <p
+          style={{
+            textAlign: 'center',
+            padding: '2rem 0 4rem 0',
+            color: '#888'
+          }}
+        >
+          {' '}
+          Não Existem mais Postagens
+        </p>
+      )}
     </>
   )
 }

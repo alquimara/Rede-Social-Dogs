@@ -27,7 +27,9 @@ const PhotoComments = ({ id, comments, single }) => {
         ))}
       </ul>
 
-      {login && <PhotoCommentsForm id={id} setComments={setComents} />}
+      {login && (
+        <PhotoCommentsForm id={id} setComments={setComents} single={single} />
+      )}
     </>
   )
 }

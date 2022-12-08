@@ -34,7 +34,7 @@ const PhotoCommentsForm = ({ id, setComments, single }) => {
       <button className={styles.button}>
         <Enviar />
       </button>
-      {erro && <Erro erro={erro} />}
+      <Erro erro={erro} />
     </form>
   )
 }

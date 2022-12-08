@@ -5,22 +5,21 @@ import styles from './FeedModal.module.css'
 import Erro from '../../Erro/Erro'
 import Loading from '../../Loading/Loading'
 import PhotoContent from '../../Photo/PhotoContent'
-import { useContext } from 'react'
-import { UserContext } from '../../../Context/useContext'
 
-const FeedModal = ({ photo }) => {
-  const { setModalPhoto } = useContext(UserContext)
+const FeedModal = ({ photo, setModalPhoto }) => {
   const { data, erro, loading, request } = useFetch()
-  function openModal(event) {
-    if (event.target === event.currentTarget) {
-      setModalPhoto(null)
-    }
-  }
 
   useEffect(() => {
     const { url, options } = PHOTO_GET(photo.id)
     request(url, options)
   }, [photo, request])
+
+  function openModal(event) {
+    console.log(photo)
+    if (event.target === event.currentTarget) {
+      setModalPhoto(null)
+    }
+  }
   return (
     <div className={styles.modal} onClick={openModal}>
       {erro && <Erro erro={erro} />}

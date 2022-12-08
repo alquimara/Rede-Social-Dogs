@@ -9,7 +9,7 @@ export const UseStoreContext = ({ children }) => {
   const [login, setLogin] = useState(null)
   const [loading, setLoading] = useState(false)
   const [erro, setErro] = useState(null)
-  const [modalPhoto, setModalPhoto] = useState(null)
+
   const navigate = useNavigate()
 
   const userLogout = useCallback(
@@ -84,9 +84,7 @@ export const UseStoreContext = ({ children }) => {
         userLogout,
         erro,
         loading,
-        login,
-        modalPhoto,
-        setModalPhoto
+        login
       }}
     >
       {children}

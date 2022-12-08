@@ -3,8 +3,7 @@ import { UserContext } from '../../../Context/useContext'
 import Image from '../../Image/Image'
 import styles from './FeedPhotoItem.module.css'
 
-const FeedPhotoItem = ({ photo }) => {
-  const { setModalPhoto } = useContext(UserContext)
+const FeedPhotoItem = ({ photo, setModalPhoto }) => {
   function handleModal() {
     setModalPhoto(photo)
   }
