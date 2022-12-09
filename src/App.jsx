@@ -14,7 +14,7 @@ import './Style/Global.css'
 const App = () => {
   return (
     <div className="App">
-      <BrowserRouter>
+      <BrowserRouter basename={process.env.PUBLIC_URL}>
         <UseStoreContext>
           <Header />
           <main className="appBody">
